@@ -1,0 +1,101 @@
+
+body {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(161, 127, 78, 0.821));
+    /* background-repeat: no-repeat; */
+    /* height: 100vh; */
+}
+
+.navbar {
+    z-index: 1;
+    position: relative;
+    /* margin-top: -60px; */
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    padding-top: 16px;
+}
+
+.navbar-brand {
+    font-family: Acme;
+    font-size: 28px;
+}
+
+.nav-link {
+    text-transform: uppercase;
+    margin-right: 30px;
+}
+
+.nav-link:hover {
+    color: rgb(233, 190, 83) !important;
+}
+
+.nav-link:hover::after {
+    content: '';
+    display: block;
+    border-bottom: 3px solid rgb(233, 190, 83);
+    width: 50%;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+}
+
+#NavAbout {
+    color: rgb(233, 190, 83) !important;
+}
+
+.About {
+    margin: 3%;
+}
+
+.textabout h4 {
+    color: white;
+    font-family: 'Comfortaa', cursive;
+}
+
+.gambar img {
+    width: 100%;
+}
+
+
+.contentAbout {
+    display: flex;
+}
+
+.contentAbout .textabout {
+    flex: 50%;
+    padding: 3%;
+}
+
+.contentAbout .gambar {
+    flex: 50%;
+    padding: 3%;
+}
+
+
+.footer .Judul {
+    font-size: 28px;
+    font-family: monospace;
+}
+
+.support a {
+    text-decoration: none;
+    color: rgb(199, 155, 74);
+    font-size: 18px;
+}
+
+.support a:hover {
+    color: grey;
+}
+
+.Social a {
+    /* margin-top: 2%;  */
+    color: rgb(199, 155, 74); 
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.Social a:hover {
+    color: grey;
+}

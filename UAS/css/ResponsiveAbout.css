@@ -1,0 +1,23 @@
+@media screen and (max-width: 990px) {
+    .navbar-toggler {
+        background-color: white;
+    }
+}
+
+@media screen and (max-width: 765px) {
+    .contentAbout {
+        display: block;
+    }   
+}
+
+@media screen and (max-width: 435px) {
+    .textabout {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 355px) {
+    .textabout {
+        font-size: 12px;
+    }
+}

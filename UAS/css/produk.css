@@ -1,0 +1,153 @@
+body {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(161, 127, 78, 0.821));
+    /* background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(161, 127, 78, 0.821)); */
+}
+
+.navbar {
+    z-index: 1;
+    position: relative;
+    /* margin-top: -60px; */
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    padding-top: 16px;
+}
+
+.navbar-brand {
+    font-family: Acme;
+    font-size: 28px;
+}
+
+.nav-link {
+    text-transform: uppercase;
+    margin-right: 30px;
+}
+
+.nav-link:hover {
+    color: rgb(233, 190, 83) !important;
+}
+
+.nav-link:hover::after {
+    content: '';
+    display: block;
+    border-bottom: 3px solid rgb(233, 190, 83);
+    width: 50%;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+}
+
+#NavProduk {
+    color: rgb(233, 190, 83) !important;
+}
+
+
+#search {
+    background: white;
+    border-radius: 10px;
+    margin: 0.5em 0;
+    padding: 0.5em 0.5em 0.5em 1em;
+    transition: all 0.5s;
+    font-size: 16px;
+}
+
+#search input::placeholder {
+    color: #929292;
+}
+#search button,
+#search input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    outline: 0;
+    color: rgb(114, 114, 114);
+}
+
+#search input {
+    flex: 1;
+}
+
+#search button {
+    cursor: pointer;
+    padding: 0 0.25em;
+}
+
+.Keranjang {
+    display: flex;
+    position: relative;
+    margin-right: -6%;
+    margin-left: 5%;
+}
+
+.TextKranjang {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    padding-top: 7px;
+    text-transform: uppercase;
+    margin-right: 30px;
+}
+
+.TextKranjang a {
+    color: white;
+    text-decoration: none;
+}
+
+.TextKranjang a:hover {
+    color: rgb(233, 190, 83);
+}
+
+.loginBtn {
+    margin-left: 5%;
+    margin-right: -25%;
+    font-family: monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    /* line-height: 37px; */
+    border: none;
+    background: none;
+    /* background-color: #FFFFFF; */
+    cursor: pointer;
+    color: white;
+}
+
+.loginBtn:hover {
+    color: rgb(233, 190, 83);
+}
+
+.card {
+    width: 18rem; 
+    margin: 2%;
+    background-color: rgb(199, 190, 181);
+}
+
+.card-img-top {
+    margin-left: -1px;
+}
+
+.SelectRow {
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-left: -30%;
+}
+
+.formSelect h1 {
+    color: white;
+}
+
+.kategori {
+    font-size: 20px;
+    border-radius: 7px;
+    padding: 3%;
+    width: 100%;
+    background-color: rgb(233, 190, 83);
+    font-family: monospace;
+}
+
+
+

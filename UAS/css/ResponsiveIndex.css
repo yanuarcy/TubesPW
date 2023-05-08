@@ -1,0 +1,371 @@
+@media screen and (max-width: 1770px){
+    .catalog {
+        margin-top: -2.5%;
+    }
+
+    .collapse {
+        margin-left: -10%;
+        margin-right: 10%;
+    }
+
+    .jumbotron {
+        background-size: 2100px;
+        background-position: -160px -300px;
+    }
+
+    .modal-contentT {
+        margin: 3% auto;
+        width: 26%; /* Could be more or less, depending on screen size */
+        height: 60%;
+    }
+}
+
+@media screen and (max-width: 1570px) {
+    .jumbotron {
+        background-size: 1900px;
+
+    }
+}
+
+@media screen and (max-width: 1520px) {
+    .collapse {
+        margin-left: -2%;
+        margin-right: 15%;
+    }
+
+    .jumbotron {
+        background-size: 1800px;
+        background-position: -160px -220px;
+    }
+
+    .modal-contentT {
+        margin: 8% auto;
+        width: 26%; /* Could be more or less, depending on screen size */
+        height: 60%;
+    }
+
+    .form-box{
+        width: 360px;
+        height: 650px;
+        position: relative;
+        margin: 8% auto;
+        margin-left: -5%;
+
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .collapse {
+        margin-left: -2%;
+        margin-right: 20%;
+    }
+
+    .catalog {
+        margin-top: -2.8%;
+    }
+
+    .jumbotron {
+        background-size: 1700px;
+        background-position: -160px -180px;
+    }
+
+    #topBtn {
+        font-size: 30px;
+        width: 6% !important;
+        height: 6%;
+    }
+
+    .modal-contentT {
+        margin: 8% auto;
+        width: 30%; /* Could be more or less, depending on screen size */
+        height: 55%;
+    }
+
+    .form-box{
+        width: 360px;
+        height: 650px;
+        position: relative;
+        margin: 8% auto;
+        margin-left: -5%;
+
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .collapse {
+        margin-left: -2%;
+        margin-right: 15%;
+    }
+
+    .jumbotron {
+        background-size: 1600px;
+        background-position: -160px -100px;
+    }
+
+    .home .display-4 {
+        margin-top: 30%;
+    }
+
+    .card {
+        width: 15rem; 
+        margin: 2%;
+    }
+
+    #topBtn {
+        font-size: 30px;
+        width: 6% !important;
+        height: 6%;
+    }
+}
+
+@media screen and (max-width: 990px) {
+
+    .jumbotron {
+        background-size: 1600px;
+        background-position: -350px -100px;
+    }
+
+    .carousel {
+        height: 300px;
+    }
+
+    .carousel-inner img {
+        height: 300px;
+    }
+
+    #topBtn {
+        font-size: 30px;
+        width: 8% !important;
+        height: 5%;
+    }
+
+    .collapse {
+        /* color: black !important; */
+        height: 400px;
+    }
+
+    .nav-link {
+        color: black !important;
+    }
+
+    .TextKranjang a {
+        color: black !important;
+    }
+
+    .loginBtn {
+        color: black !important;
+    }
+
+    .navbar-toggler {
+        background-color: white !important;
+    }
+
+    .modal-contentT {
+        margin: 8% auto;
+        width: 40%; /* Could be more or less, depending on screen size */
+        height: 55%;
+    }
+
+    .form-box{
+        width: 360px;
+        height: 650px;
+        position: relative;
+        margin: 8% auto;
+        margin-left: -5%;
+
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .home .display-4 {
+        font-size: 50px;
+        margin-top: 40%;
+    }
+
+    .modal-contentT {
+        margin: 8% auto;
+        width: 50%; /* Could be more or less, depending on screen size */
+        height: 55%;
+    }
+
+    .form-box{
+        width: 360px;
+        height: 650px;
+        position: relative;
+        margin: 8% auto;
+        margin-left: -5%;
+
+    }
+    
+    
+}
+
+@media screen and (max-width: 572px) {
+    .home .display-4 {
+        font-size: 40px;
+        margin-top: 50%;
+    }
+}
+
+@media screen and (max-width: 802px) {
+    .catalog {
+        margin-top: -4.5%;
+    }
+}
+
+@media screen and (max-width: 638px) {
+    .catalog {
+        margin-top: -6%;
+    }
+
+    .modal-contentT {
+        margin: 8% auto;
+        width: 60%; /* Could be more or less, depending on screen size */
+        height: 55%;
+    }
+
+    .form-box{
+        width: 360px;
+        height: 650px;
+        position: relative;
+        margin: 8% auto;
+        margin-left: -5%;
+
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .catalog {
+        margin-top: -8%;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .catalog {
+        margin-top: -6%;
+    }
+
+    .carousel {
+        height: 250px;
+    }
+
+    .carousel-inner img {
+        height: 250px;
+    }
+
+    .card {
+        width: 10rem;
+        margin: 2%;
+    }
+
+    .contactKonten {
+        display: block;
+    }
+
+    #topBtn {
+        font-size: 30px;
+        width: 12% !important;
+        height: 4%;
+    }
+
+    .modal-contentT {
+        margin: 15% auto;
+        width: 70%; /* Could be more or less, depending on screen size */
+        height: 55%;
+    }
+
+    .form-box{
+        width: 360px;
+        height: 650px;
+        position: relative;
+        margin: 8% auto;
+        margin-left: -5%;
+
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .catalog {
+        margin-top: -8%;
+    }
+
+    .home .display-4 {
+        margin-top: 70%;
+    }
+
+    .modal-contentT {
+        margin: 15% auto;
+        width: 85%; /* Could be more or less, depending on screen size */
+        height: 53%;
+    }
+
+    .form-box{
+        width: 360px;
+        height: 650px;
+        position: relative;
+        margin: 8% auto;
+        margin-left: -6.5%;
+
+    }
+}
+
+@media screen and (max-width: 362px) {
+    .home .btn {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 337px) {
+    #topBtn {
+        font-size: 30px;
+        width: 20% !important;
+        height: 4%;
+    }
+
+    .catalog {
+        margin-top: -10%;
+    }
+
+    
+
+
+}
+
+@media screen and (max-width: 348px) {
+    .catalog {
+        margin-top: -10%;
+    }
+
+    .carousel {
+        height: 180px;
+    }
+
+    .carousel-inner img {
+        height: 180px;
+    }
+
+    .card {
+        width: 8rem;
+    }
+
+    #topBtn {
+        font-size: 30px;
+        width: 20% !important;
+        height: 4%;
+    }
+
+    .modal-contentT {
+        margin: 15% auto;
+        width: 95%; /* Could be more or less, depending on screen size */
+        height: 50%;
+    }
+
+    .form-box{
+        width: 360px;
+        height: 650px;
+        position: relative;
+        margin: 8% auto;
+        margin-left: -8%;
+
+    }
+}

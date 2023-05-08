@@ -1,0 +1,750 @@
+html {
+    position: relative;
+}
+
+body {
+    height: 150vh;
+    width: 100%;
+}
+
+/* The Modal (background) */
+.modalL {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-contentT {
+    background-color: #fefefe;
+    margin: 3% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 26%; /* Could be more or less, depending on screen size */
+    height: 80%;
+}
+
+/* Modal Header */
+.modal-headerR {
+    width: 228px;
+    margin: 6% auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+
+
+/* Modal Body */
+.modal-bodyY .input-formM {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+    width: 100%;
+}
+
+.input-formM .nama {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    padding: 2%;
+    margin: 3%;
+}
+
+.input-formM .gender {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    padding: 2%;
+    margin: 3%;
+}
+
+.input-formM .email {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    padding: 2%;
+    margin: 3%;
+}
+
+.input-formM .password {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    padding: 2%;
+    margin: 3%;
+}
+
+.input-formM .telp {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    padding: 2%;
+    margin: 3%;
+}
+
+.input-formM .alamat {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    padding: 2%;
+    margin: 3%;
+}
+
+.input-formM .file,img {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    /* padding: 2%; */
+    margin-left: 3%;
+}
+
+.input-formM .Button {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    background-color: #f13a11;
+    color: white;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    padding: 2%;
+    margin: 3%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.input-formM .Button:hover {
+    background-color: #171819;
+    color: #f13a11;
+}
+
+.input-formM .Button::selection {
+    background-color: transparent;
+}
+
+.input-formM .checkbox {
+    margin-top: 5%;
+    margin-bottom: -33px;
+    margin-left: -38px;
+    width: 100px;
+    height: 20px;
+
+}
+
+.input-formM .permission {
+    font-size: 18px;
+    margin-left: 30px;
+    margin-top: 2%;
+}
+
+.input-formM .permission a {
+    color: #f13a11;
+}
+
+.input-formM .permission a:hover {
+    color: #171819;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    display: flex;
+    justify-content: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ClosE {
+    color: #aaa;
+    display: flex;
+    justify-content: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.ClosE:hover,
+.ClosE:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Modal */
+@media screen and (max-width: 1500px) {
+    .modal-contentT {
+        width: 35%;
+        height: 90%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .modal-contentT {
+        width: 36%;
+        height: 87%;
+    }
+
+    .modal-headerR .ModalTittle {
+        font-size: var(--h3-font-size);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .modal-contentT {
+        width: 46%;
+        height: 90%;
+    }
+}
+
+@media screen and (max-width: 885px) {
+    .modal-contentT {
+        width: 50%;
+        height: 88%;
+    }
+}
+
+@media screen and (max-width: 815px) {
+    .input-formM .nama {
+        font-size: var(--base-font-size);
+    }
+    .input-formM .email {
+        font-size: var(--base-font-size);
+    }
+    .input-formM .telp {
+        font-size: var(--base-font-size);
+    }
+    .input-formM .message {
+        font-size: var(--base-font-size);
+    }
+    .input-formM .Button {
+        font-size: var(--base-font-size);
+    }
+    .input-formM .permission {
+        font-size: var(--base-font-size);
+    }
+
+    .modal-contentT {
+        width: 55%;
+        height: 82%;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .modal-contentT {
+        width: 62%;
+        height: 80%;
+        margin: 10% auto;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .modal-contentT {
+        width: 65%;
+        height: 75%;
+    }
+
+    .modal-headerR .ModalTittle {
+        font-size: var(--h5-font-size);
+    }
+
+    .input-formM .nama {
+        font-size: var(--menu-font-size);
+    }
+    .input-formM .email {
+        font-size: var(--menu-font-size);
+    }
+    .input-formM .telp {
+        font-size: var(--menu-font-size);
+    }
+    .input-formM .message {
+        font-size: var(--menu-font-size);
+    }
+    .input-formM .Button {
+        font-size: var(--menu-font-size);
+    }
+    .input-formM .permission {
+        font-size: var(--menu-font-size);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .modal-contentT {
+        margin: 18% auto;
+        width: 75%;
+        height: 78%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .modal-headerR .ModalTittle {
+        font-size: var(--h6-font-size);
+    }
+
+    .input-formM .nama {
+        font-size: 12px;
+    }
+    .input-formM .email {
+        font-size: 12px;
+    }
+    .input-formM .telp {
+        font-size: 12px;
+    }
+    .input-formM .message {
+        font-size: 12px;
+    }
+    .input-formM .Button {
+        font-size: 12px;
+    }
+    .input-formM .permission {
+        font-size: 12px;
+    }
+
+    .input-formM .permission a {
+        font-size: 12px;
+    }
+
+    .modal-contentT {
+        height: 69%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .modal-headerR .ModalTittle {
+        font-size: var(--p-font-size);
+    }
+
+    .input-formM .nama {
+        font-size: 10px;
+    }
+    .input-formM .email {
+        font-size: 10px;
+    }
+    .input-formM .telp {
+        font-size: 10px;
+    }
+    .input-formM .message {
+        font-size: 10px;
+    }
+    .input-formM .Button {
+        font-size: 10px;
+    }
+    .input-formM .permission {
+        font-size: 10px;
+        margin-top: 5%;
+    }
+
+    .input-formM .permission a {
+        font-size: 10px;
+    }
+
+    .input-formM .checkbox {
+        height: 15px;
+    }
+
+    .modal-contentT {
+        height: 60%;
+        margin: 34% auto;
+    }
+}
+/* Akhir Responsive Modal */
+
+.navbar {
+    z-index: 1;
+    position: relative;
+    /* margin-top: -60px; */
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    padding-top: 16px;
+}
+
+.navbar-brand {
+    font-family: Acme;
+    font-size: 28px;
+}
+
+.nav-link {
+    text-transform: uppercase;
+    margin-right: 30px;
+}
+
+.nav-link:hover {
+    color: rgb(233, 190, 83) !important;
+}
+
+.nav-link:hover::after {
+    content: '';
+    display: block;
+    border-bottom: 3px solid rgb(233, 190, 83);
+    width: 50%;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+}
+
+#NavHome {
+    color: rgb(233, 190, 83) !important;
+}
+
+
+#search {
+    background: white;
+    border-radius: 10px;
+    margin: 0.5em 0;
+    padding: 0.5em 0.5em 0.5em 1em;
+    transition: all 0.5s;
+    font-size: 16px;
+}
+
+#search input::placeholder {
+    color: #929292;
+}
+#search button,
+#search input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    outline: 0;
+    color: rgb(114, 114, 114);
+}
+
+#search input {
+    flex: 1;
+}
+
+#search button {
+    cursor: pointer;
+    padding: 0 0.25em;
+}
+
+.Keranjang {
+    display: flex;
+    position: relative;
+    margin-right: -6%;
+    margin-left: 5%;
+}
+
+.TextKranjang {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    padding-top: 7px;
+    text-transform: uppercase;
+    margin-right: 30px;
+}
+
+.TextKranjang a {
+    color: white;
+    text-decoration: none;
+}
+
+.TextKranjang a:hover {
+    color: rgb(233, 190, 83);
+}
+
+.loginBtn {
+    margin-left: 5%;
+    margin-right: -25%;
+    font-family: monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    /* line-height: 37px; */
+    border: none;
+    background: none;
+    /* background-color: #FFFFFF; */
+    cursor: pointer;
+    color: white;
+}
+
+.loginBtn:hover {
+    color: rgb(233, 190, 83);
+}
+
+.jumbotron .container {
+    z-index: 1;
+    position: relative;
+}
+
+.jumbotron {
+    height: 990px;
+    background-image: url('../img/BgJumbotron.jpg');
+    background-attachment: fixed;
+    background-size: 2200px;
+    /* background-size: cover; */
+    background-position: -160px -490px;
+    color: #eee;
+    overflow: hidden;
+    position: relative;
+    margin-top: -95px;
+}
+
+.jumbotron::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+    position: absolute;
+    bottom: 0;
+}
+
+.komponen .display-4 {
+    color: white;
+    margin-top: 60px;
+    font-weight: 100;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    font-size: 70px;
+    margin-bottom: 30px;
+    font-family: monospace;
+}
+
+.komponen .display-4 span{
+    font-weight: 800;
+}
+
+.komponen .button {
+    background-color: rgb(199, 155, 74);
+    color: black;
+    font-size: 26px;
+    padding: 1%;
+    margin-top: 6%;
+    border-radius: 10px;
+}
+
+.komponen .button:hover {
+    background-color: rgb(85, 85, 86);
+    color: rgb(232, 222, 222);
+}
+
+
+.catalog {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(161, 127, 78, 0.821));
+    padding: 5rem 0;
+    margin-top: -1.8%;
+}
+
+.Judulcatalog {
+    padding-bottom: 2%;
+    font-family: monospace;
+    color: rgb(199, 155, 74);
+}
+
+.card {
+    width: 18rem; 
+    margin: 2%;
+    background-color: rgb(199, 190, 181);
+}
+
+.card-img-top {
+    margin-left: -1px;
+}
+
+/* .custom-input::-webkit-inner-spin-button, 
+.custom-input::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+} */
+
+/* .viewproduk {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 40px;
+    height: 30px;
+    padding: 0px;
+    font-size: 14pt;
+    border: solid 0.5px #000;
+    z-index: 1;
+} */
+
+/* .spinner-button {
+    position: absolute;
+    cursor: default;
+    z-index: 2;
+    background-color: #ccc;
+    width: 14.5px;
+    text-align: center;
+    margin: 0px;
+    pointer-events: none;
+    height: 10px;
+    line-height: 10px;
+} */
+
+/* #inc-button {
+    left: 46px;
+    top: 10.5px;
+}
+
+#dec-button {
+    left: 46px;
+    top: 20.5px;
+} */
+
+.carousel {
+    width: 85%;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.carousel-inner img {
+    height: 400px;
+    margin-left: -1%;
+    object-fit: contain;
+    background-color: rgb(255, 255, 255);
+}
+
+.carousel button {
+    width: 80px;
+}
+
+.carousel-indicators li {
+    background-color: rgb(62, 66, 66);
+}
+
+.carousel-indicators .active {
+    background-color: rgb(199, 155, 74);
+}
+
+.contact {
+    padding: 8rem 0;
+    background-image: linear-gradient(to bottom, rgba(161, 127, 78, 0.821), white);
+}
+
+.contactKonten {
+    display: flex;
+    flex-direction: row;
+}
+
+.contactKonten .inputForm {
+    flex: 50%;
+    padding: 3%;
+}
+
+.inputForm h2 {
+    margin-bottom: 4%;
+    padding-bottom: 3%;
+}
+
+.form-control {
+    border-radius: var(--border-radius-small);
+    margin: 1.3rem 0;
+}
+
+.btnContact {
+    background: black;
+    border-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: calc(2.25rem + 20px);
+}
+
+.btnContact:hover {
+    background: rgb(199, 155, 74);
+}
+
+.contactKonten .Gmaps {
+    flex: 50%;
+    padding: 3%;
+}
+
+.Gmaps h2 {
+    margin-bottom: 4%;
+}
+
+.Gmaps p {
+    color: black;
+}
+
+.contact .fa {
+    color: red;
+}
+
+.google-map {
+    border-top: 1px solid #efebeb;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+}
+
+.google-map iframe {
+    width: 100%;
+}
+
+.contact input:focus {
+    outline: none !important;
+    border-bottom: 2px solid rgb(91, 243, 131);
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+}
+
+.contact textarea:focus {
+    outline: none !important;
+    border-bottom: 2px solid rgb(91, 243, 131);
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+}
+
+.footer .Judul {
+    font-size: 28px;
+    font-family: monospace;
+}
+
+.support a {
+    text-decoration: none;
+    color: rgb(199, 155, 74);
+    font-size: 18px;
+}
+
+.support a:hover {
+    color: grey;
+}
+
+.Social a {
+    /* margin-top: 2%;  */
+    color: rgb(199, 155, 74); 
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.Social a:hover {
+    color: grey;
+}
+
+.input-group .ForgetPsswd {
+    text-decoration: none;
+}
+
+
+
+/* buttonscroll */
+#topBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    font-size: 22px;
+    width: 3% !important;
+    height: 6%;
+    background: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+#topBtn:hover {
+    color: rgb(199, 155, 74);
+}
