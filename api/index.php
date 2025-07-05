@@ -1,8 +1,8 @@
 <?php 
     session_start();
-    include '../config/LoginConfig.php';
-    include '../config/ProdukConfig.php';
-    include '../config/MemberConfig.php';
+    include 'config/LoginConfig.php';
+    include 'config/ProdukConfig.php';
+    include 'config/MemberConfig.php';
     // include 'addToCart.php';
     // session_destroy();
     // unset($_SESSION['logged_in']);
