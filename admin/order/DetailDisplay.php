@@ -398,34 +398,52 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php     
-                        $no = 1;
-                        $Total = 0;
-                        $pdo = new PDO(
-                            'mysql:host=fm07c.h.filess.io;port=3307;dbname=solaris_pleasuremy;charset=utf8', 
-                            'solaris_pleasuremy', 
-                            '8c9eb5761d390d7147a2f9e4013c3680ac16fb69'
-                        );
-                        $query = "SELECT * FROM orderdetails WHERE orderid = :Orderid";
-                        $stmt = $pdo->prepare($query);
-                        $stmt->bindParam(':Orderid', $id);
-                        $stmt->execute();
-                        $data = $stmt->fetchAll();
-                        foreach($data as $row){
-                            echo "<tr>";
-                            echo "<td style='width: 10%;'>".$no."</td>";
-                            echo "<td style='width: 10%;'>".$row['OrderID']."</td>";
-                            echo "<td style='width: 10%;'>".$row['ItemID']."</td>";
-                            echo "<td style='width: 10%;'>".$row['Jml_Barang']."</td>";
-                            echo "<td style='width: 20%;'>Rp ".number_format($row['Total_Harga'], 0, ',', '.')."</td>";
-                            echo "</tr>";
-                            $Total += $row['Total_Harga'];
-                            $no++;
-                        }
-                    ?>
-                    <td colspan="4" class="text-right"><b>Total Harga :</b></td>
-                    <td colspan="5">Rp <?php echo number_format($Total,0,',','.') ?></td>
-                        
+                        <?php     
+                            $no = 1;
+                            $Total = 0;
+                            
+                            // Membuat koneksi yang akan ditutup setelah digunakan
+                            try {
+                                $pdo = new PDO(
+                                    'mysql:host=fm07c.h.filess.io;port=3307;dbname=solaris_pleasuremy;charset=utf8', 
+                                    'solaris_pleasuremy', 
+                                    '8c9eb5761d390d7147a2f9e4013c3680ac16fb69',
+                                    [
+                                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                                        PDO::ATTR_PERSISTENT => false
+                                    ]
+                                );
+                                $query = "SELECT * FROM orderdetails WHERE orderid = :Orderid";
+                                $stmt = $pdo->prepare($query);
+                                $stmt->bindParam(':Orderid', $id);
+                                $stmt->execute();
+                                $data = $stmt->fetchAll();
+                                
+                                foreach($data as $row){
+                                    echo "<tr>";
+                                    echo "<td style='width: 10%;'>".$no."</td>";
+                                    echo "<td style='width: 10%;'>".$row['OrderID']."</td>";
+                                    echo "<td style='width: 10%;'>".$row['ItemID']."</td>";
+                                    echo "<td style='width: 10%;'>".$row['Jml_Barang']."</td>";
+                                    echo "<td style='width: 20%;'>Rp ".number_format($row['Total_Harga'], 0, ',', '.')."</td>";
+                                    echo "</tr>";
+                                    $Total += $row['Total_Harga'];
+                                    $no++;
+                                }
+                                
+                                // Tutup koneksi setelah selesai
+                                $pdo = null;
+                                
+                            } catch(PDOException $e) {
+                                echo "Error: " . $e->getMessage();
+                                $pdo = null;
+                            }
+                        ?>
+                        <tr>
+                            <td colspan="4" class="text-right"><b>Total Harga :</b></td>
+                            <td colspan="5">Rp <?php echo number_format($Total,0,',','.') ?></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

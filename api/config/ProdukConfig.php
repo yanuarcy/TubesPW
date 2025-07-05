@@ -3,147 +3,160 @@ class ProdukConfig
 {
     private $conn;
     
-    public function __construct() {
-        $hostname = 'fm07c.h.filess.io';
-        $dbname = 'solaris_pleasuremy';
-        $username = 'solaris_pleasuremy';
-        $password = '8c9eb5761d390d7147a2f9e4013c3680ac16fb69';
-        $port = 3307;
-        
-        try {
-            $this->conn = new PDO(
-                "mysql:host=$hostname;port=$port;dbname=$dbname;charset=utf8", 
-                $username, 
-                $password,
-                [
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
-                ]
-            );
-        } catch(PDOException $e) {
-            die("Connection failed: " . $e->getMessage());
+    private function getConnection() {
+        if ($this->conn === null) {
+            $hostname = 'fm07c.h.filess.io';
+            $dbname = 'solaris_pleasuremy';
+            $username = 'solaris_pleasuremy';
+            $password = '8c9eb5761d390d7147a2f9e4013c3680ac16fb69';
+            $port = 3307;
+            
+            try {
+                $this->conn = new PDO(
+                    "mysql:host=$hostname;port=$port;dbname=$dbname;charset=utf8", 
+                    $username, 
+                    $password,
+                    [
+                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
+                        PDO::ATTR_PERSISTENT => false
+                    ]
+                );
+            } catch(PDOException $e) {
+                die("Connection failed: " . $e->getMessage());
+            }
         }
+        return $this->conn;
+    }
+    
+    private function closeConnection() {
+        $this->conn = null;
     }
     
     public function ShowSearch($search) {
-        $query1 = $this->conn->prepare(
+        $conn = $this->getConnection();
+        $query1 = $conn->prepare(
                                         "SELECT * FROM produk where
                                         itemid like '$search' or 
                                         nm_barang like '%$search%'");
         $query1->execute();
-        $searchdata = $query1->fetchAll();  
+        $searchdata = $query1->fetchAll();
+        $this->closeConnection();
         return $searchdata;
-
     }
     
     public function show()
     {
-        $query1 = $this->conn->prepare("SELECT * FROM produk");
+        $conn = $this->getConnection();
+        
+        $query1 = $conn->prepare("SELECT * FROM produk");
         $query1->execute();
         $ConfigProduk = $query1->fetchAll();
 
-        $query2 = $this->conn->prepare("SELECT * FROM produk order by rand()");
+        $query2 = $conn->prepare("SELECT * FROM produk order by rand()");
         $query2->execute();
         $Showadmin = $query2->fetchAll();
 
-        $query3 = $this->conn->prepare("SELECT * FROM produk ORDER BY RAND() limit 6");
+        $query3 = $conn->prepare("SELECT * FROM produk ORDER BY RAND() limit 6");
         $query3->execute();
         $Showuser = $query3->fetchAll();
 
+        $this->closeConnection();
         return array($ConfigProduk, $Showadmin, $Showuser);
     }
 
     public function getItemsByCategory($category) {
+        $conn = $this->getConnection();
+        
         if($category == "All") {
             $query = "SELECT * FROM produk order by rand()";
-            $stmt = $this->conn->prepare($query);
+            $stmt = $conn->prepare($query);
             $stmt->execute();
-            return $stmt->fetchAll();
+            $result = $stmt->fetchAll();
+            $this->closeConnection();
+            return $result;
         }
-
-        // $query = "SELECT kategoriid FROM kategori WHERE nama = :category";
-        // $stmt = $this->conn->prepare($query);
-        // $stmt->execute(['category' => $category]);
-        // $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        // $kategoriid = $row['kategoriid'];
         
         $query2 = "SELECT * FROM produk WHERE kategoriid = $category";
-        $stmt2 = $this->conn->prepare($query2);
+        $stmt2 = $conn->prepare($query2);
         $stmt2->execute();
-        return $stmt2->fetchAll();
-
+        $result = $stmt2->fetchAll();
+        $this->closeConnection();
+        return $result;
     }
 
     public function AddProduk($nm_barang, $kategori, $stok, $harga, $deskripsi, $memberID, $fileName) {
-        // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
+        $conn = $this->getConnection();
+        
         $query = "SELECT kategoriid FROM kategori WHERE nama = :kategori";
-        $stmt = $this->conn->prepare($query);
+        $stmt = $conn->prepare($query);
         $stmt->bindParam(':kategori', $kategori);
         $stmt->execute();
-        // session_start();
+        
         if ($stmt->rowCount() > 0) {
-            // Login successful
-            // session_start();
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $_SESSION['kategoriid'] = $row['kategoriid'];
             $KategoriID = $_SESSION['kategoriid'];
         }
 
         $query2 = "INSERT INTO produk (kategoriid, memberid, nm_barang, harga, stok, deskripsi, photo) VALUES (:kategori, :memberID, :nm_barang, :input, :stok, :deskripsi, :photo)";
-        $stmt2 = $this->conn->prepare($query2);
+        $stmt2 = $conn->prepare($query2);
         $stmt2->bindParam(':nm_barang', $nm_barang);
         $stmt2->bindParam(':kategori', $KategoriID);
         $stmt2->bindParam(':stok', $stok);
-        // $stmt2->bindParam(':harga', $harga);
         $input = intval(preg_replace("/[^0-9]/", "", $harga));
         $stmt2->bindParam(':input', $input);
         $stmt2->bindParam(':deskripsi', $deskripsi);
         $stmt2->bindParam(':memberID', $memberID);
         $stmt2->bindParam(':photo', $fileName);
         $stmt2->execute();
+        
+        $this->closeConnection();
     }
 
     public function get_by_id($id){
-        $query = $this->conn->prepare("SELECT * FROM produk where ItemID = :ItemID");
+        $conn = $this->getConnection();
+        $query = $conn->prepare("SELECT * FROM produk where ItemID = :ItemID");
         $query->bindParam(':ItemID', $id);
         $query->execute();
-        return $query->fetch();
+        $result = $query->fetch();
+        $this->closeConnection();
+        return $result;
     }
 
     public function showupdate($id){
-        $query = $this->conn->prepare("SELECT * FROM produk where ItemID = :ItemID");
+        $conn = $this->getConnection();
+        $query = $conn->prepare("SELECT * FROM produk where ItemID = :ItemID");
         $query->bindParam(':ItemID', $id);
         $response = array();
         $query->execute();
         foreach($query as $row){
             $response = $row;
         }
+        $this->closeConnection();
         echo json_encode($response);
     }
 
     public function update($id,$nm_barang, $kategori, $stok, $harga, $deskripsi, $memberID, $fileName){
-
+        $conn = $this->getConnection();
+        
         $query = "SELECT kategoriid FROM kategori WHERE nama = :kategori";
-        $stmt = $this->conn->prepare($query);
+        $stmt = $conn->prepare($query);
         $stmt->bindParam(':kategori', $kategori);
         $stmt->execute();
-        // session_start();
+        
         if ($stmt->rowCount() > 0) {
-            // session_start();
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $_SESSION['kategoriid'] = $row['kategoriid'];
             $KategoriID = $_SESSION['kategoriid'];
         }
 
-
-        $query2 = $this->conn->prepare('UPDATE produk set kategoriid = :kategori, memberid = :memberID, nm_barang = :nm_barang, stok = :stok, harga = :input, deskripsi = :deskripsi, photo = :photo  where ItemID = :itemId');
+        $query2 = $conn->prepare('UPDATE produk set kategoriid = :kategori, memberid = :memberID, nm_barang = :nm_barang, stok = :stok, harga = :input, deskripsi = :deskripsi, photo = :photo  where ItemID = :itemId');
         $query2->bindParam(':kategori', $KategoriID);
         $query2->bindParam(':memberID', $memberID);
         $query2->bindParam(':nm_barang', $nm_barang);
         $query2->bindParam(':stok', $stok);
-        // $query2->bindParam(':harga', $harga);
         $input = intval(preg_replace("/[^0-9]/", "", $harga));
         $query2->bindParam(':input', $input);
         $query2->bindParam(':deskripsi', $deskripsi);
@@ -151,18 +164,20 @@ class ProdukConfig
         $query2->bindParam(':itemId', $id);
 
         $query2->execute();
-        return $query2->rowCount();
+        $result = $query2->rowCount();
+        $this->closeConnection();
+        return $result;
     }
 
     public function delete($id)
     {
-        $query = $this->conn->prepare("DELETE FROM produk where ItemID=?");
-
+        $conn = $this->getConnection();
+        $query = $conn->prepare("DELETE FROM produk where ItemID=?");
         $query->bindParam(1, $id);
-
         $query->execute();
-        return $query->rowCount();
+        $result = $query->rowCount();
+        $this->closeConnection();
+        return $result;
     }
-
 }
 ?>
