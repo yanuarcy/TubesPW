@@ -1,9 +1,9 @@
 <?php 
-    include 'config/LoginConfig.php';
-    include 'config/ProdukConfig.php';
-    include 'config/MemberConfig.php';
-    // include 'addToCart.php';
     session_start();
+    include '../config/LoginConfig.php';
+    include '../config/ProdukConfig.php';
+    include '../config/MemberConfig.php';
+    // include 'addToCart.php';
     // session_destroy();
     // unset($_SESSION['logged_in']);
     unset($_SESSION['ProdukPage']);
@@ -90,18 +90,18 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/ResponsiveIndex.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/ResponsiveIndex.css">
 
     <!-- CSS Bootstrap -->
     <!-- <link href="css/bootstrap.css" rel="stylesheet"/> -->
     <!-- <link href="css/style.css" rel="stylesheet"/> -->
 
     <!-- CSS Lightbox -->
-    <link href="css/lightbox.css" rel="stylesheet"/>
+    <link href="../css/lightbox.css" rel="stylesheet"/>
 
-    <title>Komputer</title>
+    <title>Solaris</title>
 
     <style>
 
@@ -458,14 +458,14 @@
     <script src="https://kit.fontawesome.com/f52d9e5e58.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- <script src="js/bootstrap.js"></script> -->
-    <script src="js/index.js"></script>
+    <script src="../js/index.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <!-- <script src="js/smoothscroll.js"></script> -->
     <button id="topBtn"><i class="fas fa-angle-double-up"></i></button>
     
     
     <!-- jQuery Lightbox -->
-    <script src="js/lightbox-plus-jquery.min.js"></script>
+    <script src="../js/lightbox-plus-jquery.min.js"></script>
     
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
