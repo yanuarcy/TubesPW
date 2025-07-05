@@ -9,20 +9,26 @@
     unset($_SESSION['ProdukPage']);
     // $inputValue = $_SESSION['inputValue'];
     
-    $lib        = new ProdukConfig();
-    $lib2       = new Login();
-    $lib3       = new MemberConfig();
-
+    $lib = new ProdukConfig();
     $data_produk = $lib->show();
     
     if(isset($_SESSION['cart'])){
         $cartT = $_SESSION['cart'];
         // print_r(($cartT));
     }
+
+    if(isset($_GET['ItemID'])){
+        $id = $_GET['ItemID']; 
+        $data_View = $lib->get_by_id($id);
+        $nm_barang = $data_View['Nm_Barang'];
+        $harga = $data_View['Harga'];
+        $poto = $data_View['photo'];
+        $deskripsi = $data_View['Deskripsi'];
+    }
+    else{
+        header('Location: index.php');
+    }
     
-    
-    
-    // $data_search = $lib2->ShowSearch($search);
     
     
     
@@ -50,30 +56,7 @@
     }
 
 
-    if (isset($_POST['Loginn'])) {
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-        $login = new Login();
-        $login->checkCredentials($username, $password);
-
-        
-
-    }
     
-    if(isset($_POST['Registerr'])){
-        $name = $_POST["name"];
-        $gender = $_POST["gender"];
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-        $telp = $_POST["telp"];
-        $alamat = $_POST["alamat"];
-        $role = "User";
-        $register = new MemberConfig();
-        $register->createMember($name, $gender, $email, $password, $telp, $alamat, $role);
-        if ($register) {
-            header('Location: index.php');
-        }
-    }
     
 
     
@@ -90,16 +73,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/ResponsiveIndex.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/ViewProduk.css">
 
     <!-- CSS Bootstrap -->
     <!-- <link href="css/bootstrap.css" rel="stylesheet"/> -->
     <!-- <link href="css/style.css" rel="stylesheet"/> -->
 
     <!-- CSS Lightbox -->
-    <link href="css/lightbox.css" rel="stylesheet"/>
+    <link href="../css/lightbox.css" rel="stylesheet"/>
 
     <title>Komputer</title>
 
@@ -111,57 +94,31 @@
 <body dat-spy="scroll" data-target="#navbarNav" data-offset="50">
 
     <!-- The Modal -->
-    <div id="LoginModal" class="modalL">
+    <div id="ViewModal" class="modal">
 
         <!-- Modal content -->
-        <div class="modal-contentT">
-            <span class="close">&times;</span>
+        <div class="modal-content">
+            <span class="Close">&times;</span>
             
-            <div class="modal-headerR">
-                <div id="btn"></div>
-                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
-                <button type="button" class="toggle-btn"onclick="Register()">Register</button>
+            <div class="modal-header">
+                <h2 class="ModalTittle">Deskripsi</h2>
+                <h2 class="ModalTittle">Product</h2>
             </div>
 
-            <div class="modal-bodyY">
-                    <div class="form-box">
-                        
-                        <form id="login" class="input-group" method="post">
-                            <input type="email" class="input-field" name="username" placeholder="Email" required>
-                            <input type="password" class="input-field" name="password" placeholder="Password" required>
-                            <div class="Btn">
-                                <button type="submit" name="Loginn" class="submit-btn">Log in</button>
-                            </div>
-                        </form>
-
-                        <form id="Register" class="input-group" method="post">
-                            <input type="text" class="input-field" name="name" placeholder="Nama" required>
-                            <input type="email" class="input-field" name="email" placeholder="Email" required>
-                            <input type="password" class="input-field" name="password" placeholder="Password" style="margin-bottom: 5%;" required>
-                            <div class="formGroup">
-                                <label class="label1" for="Male">
-                                    <input class="radio1" type="radio" name="gender" value="L" />Male
-                                </label>
-                                <label class="label2" for="Male">
-                                    <input class="radio2" type="radio" name="gender" value="P" />Female
-                                </label>
-                            </div>
-                            <input type="text" name="telp" class="input-field" placeholder="0812-3456-7890" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" required>
-                            <textarea name="alamat" class="input-field" id="Alamat" placeholder="Alamat" cols="30" rows="5" required></textarea>
-                            <div class="checkBox">
-                                <input type="checkbox" name="checkbox" id="checkbox" required>
-                                <span class="text">I agree with term & conditions</span>
-                            </div>
-                            <div class="Btn">
-                                <button type="submit" name="Registerr" class="submit-btn">Register</button>
-                            </div>
-                        </form>
-                    </div> 
+            <div class="modal-body">
+                <div class="card justify-content-center" style="width: 100%; margin: 0 auto; background: white;">
+                    <img src="admin/produk/img/<?php echo $poto ?>" style="width: 50%;" class="card-img-top" alt="<?php echo $poto ?>">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $nm_barang ?></h5>
+                        <p class="card-text">Rp <?php echo number_format($harga, 0, ',', '.'); ?></p>
+                    </div>
+                    <div class="card-footer">
+                        <p><?php echo $deskripsi ?></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    
 
     <!-- navbar -->
     <div class="container">
@@ -178,12 +135,6 @@
                     <a class="nav-link page-scroll" href="About.php">About</a>
                     <a class="nav-link smoothScroll" href="Produk.php">Product</a>
                     <a class="nav-link smoothScroll" href="#contact">Contact</a>
-                    <!-- <div id="search">
-                        <input type="text" id="input" placeholder="Search..">
-                        <button id="button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div> -->
                     
                 </div>
                 <div class="Keranjang">
@@ -208,11 +159,11 @@
                 <?php 
                     if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
                         echo '<button onclick="Logout();" class="loginBtn">
-                                Logout
+                                Keluar
                             </button>';
                     } else {
                         echo '<button id="LoginBtn" class="loginBtn">
-                                Login
+                                Masuk
                             </button>';
                     }
                 ?>
@@ -264,14 +215,7 @@
             <div class="row">
                 <div class="container center">
                     <div id="carouselExampleIndicators" class="carousel slide" data-touch="true" data-interval="true" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <?php 
-                                foreach($data_produk[1] as $row){
-                                    echo '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>';
-                                }  
-                            ?>
-                        </ol>
+                        
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-interval="3000">
                                 <img src="admin/produk/img/PC-3.png" class="d-block w-100" alt="...">
@@ -317,7 +261,7 @@
                     </div>
                     <div class="card-footer">
                         <!-- <input type="number" class="custom-input" value="1" id="inputValue" name="jumlah" min="1" max="100" style="width: 18%; height: 33px;"> -->
-                        <a href="ViewProduk_index.php?ItemID= <?php echo $row['ItemID']?>" class="btn btn-warning viewproduk"><i class="fa-regular fa-eye"></i></a>
+                        <a href="#" class="btn btn-warning viewproduk"><i class="fa-regular fa-eye"></i></a>
                         <a href="addToCart.php?id=<?php echo $row['ItemID'] ?>" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></a>
                     </div>
                 </div>
@@ -333,39 +277,13 @@
 
 
     <!-- CONTACT -->
-    <section class="contact" id="contact">
+    <section class="contact section" id="contact">
             <div class="container">
                 <div class="contactKonten">
 
                     <div class="inputForm">
                         <h2 data-aos="fade-up" data-aos-delay="200">Feel free to ask anything</h2>
-                        <?php 
-                            if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true){
-                                if(isset($_SESSION['Nama'])){
-                                    $nama = $_SESSION['Nama'];
-                                    
-                                }
-                                if(isset($_SESSION['Email'])){
-                                    $email = $_SESSION['Email'];
-                                    
-                                }
 
-
-                            
-                        ?>
-                        <form onsubmit="sendEmail(); reset(); return false" class="contact-form webform" data-aos="fade-up" data-aos-delay="400" role="form">
-                            <input type="text" class="form-control" id="nama" name="cf-name" value="<?php echo $nama?>" placeholder="<?php echo $nama?>">
-
-                            <input type="email" class="form-control" id="email" name="cf-email" value="<?php echo $email?>" placeholder="<?php echo $email?>">
-
-                            <textarea class="form-control" rows="5" id="message" name="cf-message" placeholder="Message"></textarea>
-
-                            <button type="submit" class="form-control btnContact" id="submit-button" name="submit">Send Message</button>
-                        </form>
-                        <?php }else {
-
-                        
-                        ?>
                         <form onsubmit="sendEmail(); reset(); return false" class="contact-form webform" data-aos="fade-up" data-aos-delay="400" role="form">
                             <input type="text" class="form-control" id="nama" name="cf-name" placeholder="Name">
 
@@ -375,9 +293,6 @@
 
                             <button type="submit" class="form-control btnContact" id="submit-button" name="submit">Send Message</button>
                         </form>
-                        <?php }
-                        ?>
-                        
                     </div>
 
                     <div class="Gmaps">
@@ -448,6 +363,19 @@
 
 
     <!-- Optional JavaScript; choose one of the two! -->
+    <script>
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("Close")[0];
+        span.onclick = function() {
+            window.location = "index.php";
+        }
+        
+        // window.onclick = function() {
+        //     window.location = "ProdukDisplay.php";
+        // }
+
+
+    </script>
 
 
 
@@ -458,14 +386,13 @@
     <script src="https://kit.fontawesome.com/f52d9e5e58.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- <script src="js/bootstrap.js"></script> -->
-    <script src="js/index.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="../js/index.js"></script>
     <!-- <script src="js/smoothscroll.js"></script> -->
     <button id="topBtn"><i class="fas fa-angle-double-up"></i></button>
     
     
     <!-- jQuery Lightbox -->
-    <script src="js/lightbox-plus-jquery.min.js"></script>
+    <script src="../js/lightbox-plus-jquery.min.js"></script>
     
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--

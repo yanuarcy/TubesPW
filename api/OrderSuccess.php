@@ -32,7 +32,7 @@
 
     <div class="container">
         <div class="content text-center" style="margin-top: 10%;">
-            <img src="img/CartDoneBg.png" alt="">
+            <img src="../img/CartDoneBg.png" alt="">
             <h1 class="display-3 mb-5"><b>Order Sukses</b></h1>
 
             <?php 

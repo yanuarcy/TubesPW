@@ -24,18 +24,6 @@
         $cartT = $_SESSION['cart'];
         // print_r(($cartT));
     }
-
-    if(isset($_GET['ItemID'])){
-        $id = $_GET['ItemID']; 
-        $data_View = $lib->get_by_id($id);
-        $nm_barang = $data_View['Nm_Barang'];
-        $harga = $data_View['Harga'];
-        $poto = $data_View['photo'];
-        $deskripsi = $data_View['Deskripsi'];
-    }
-    else{
-        header('Location: index.php');
-    }
     
     $_SESSION['ProdukPage'] = true;
 
@@ -87,41 +75,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/produk.css">
-    <link rel="stylesheet" href="css/ViewProduk.css">
+    <link rel="stylesheet" href="../css/produk.css">
+    <link rel="stylesheet" href="../css/ResponsiveProduk.css">
+
 
     <title>Solaris - Product</title>
 
 </head>
 <body dat-spy="scroll" data-target="#navbarNav" data-offset="50">
-
-    <!-- The Modal -->
-    <div id="ViewModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="Close">&times;</span>
-            
-            <div class="modal-header">
-                <h2 class="ModalTittle">Deskripsi</h2>
-                <h2 class="ModalTittle">Product</h2>
-            </div>
-
-            <div class="modal-body">
-                <div class="card justify-content-center" style="width: 100%; margin: 0 auto; background: white;">
-                    <img src="admin/produk/img/<?php echo $poto ?>" style="width: 50%;" class="card-img-top" alt="<?php echo $poto ?>">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $nm_barang ?></h5>
-                        <p class="card-text">Rp <?php echo number_format($harga, 0, ',', '.'); ?></p>
-                    </div>
-                    <div class="card-footer">
-                        <p><?php echo $deskripsi ?></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <!-- navbar -->
     <div class="container">
@@ -191,7 +152,6 @@
                         }
                     ?>
                 </select>
-                <!-- <input type="submit" value="Submit"> -->
             </form>
         </div>
     </div>
@@ -214,8 +174,8 @@
                                             <!-- <a href="#" class="btn btn-warning mr-2"><i class="fa-regular fa-eye"></i></a> -->
                                         </div>
                                         <div class="card-footer">
-                                            <!-- <input type="number" class="custom-input" value="1" id="inputValue" name="jumlah" min="1" max="100" style="width: 18%; height: 33px;"> -->
-                                            <a href="ViewProduk.php?ItemID= <?php echo $row['ItemID']?>" class="btn btn-warning viewproduk"><i class="fa-regular fa-eye"></i></a>
+                                            <!-- <in put type="number" class="custom-input" value="1" id="inputValue" name="jumlah" min="1" max="100" style="width: 18%; height: 33px;"> -->
+                                            <a href="ViewProduk_prdct.php?ItemID= <?php echo $row['ItemID']?>" class="btn btn-warning viewproduk"><i class="fa-regular fa-eye"></i></a>
                                             <a href="addToCart.php?id=<?php echo $row['ItemID'] ?>" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></a>
                                         </div>
                                     </div>
@@ -237,7 +197,7 @@
                                         </div>
                                         <div class="card-footer">
                                             <!-- <input type="number" class="custom-input" value="1" id="inputValue" name="jumlah" min="1" max="100" style="width: 18%; height: 33px;"> -->
-                                            <a href="ViewProduk.php?ItemID= <?php echo $row['ItemID']?>" class="btn btn-warning viewproduk"><i class="fa-regular fa-eye"></i></a>
+                                            <a href="ViewProduk_prdct.php?ItemID= <?php echo $row['ItemID']?>" class="btn btn-warning viewproduk"><i class="fa-regular fa-eye"></i></a>
                                             <a href="addToCart.php?id=<?php echo $row['ItemID'] ?>" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></a>
                                         </div>
                                     </div>
@@ -262,7 +222,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <!-- <input type="number" class="custom-input" value="1" id="inputValue" name="jumlah" min="1" max="100" style="width: 18%; height: 33px;"> -->
-                                        <a href="ViewProduk.php?ItemID= <?php echo $row['ItemID']?>" class="btn btn-warning viewproduk"><i class="fa-regular fa-eye"></i></a>
+                                        <a href="ViewProduk_prdct.php?ItemID= <?php echo $row['ItemID']?>" class="btn btn-warning viewproduk"><i class="fa-regular fa-eye"></i></a>
                                         <a href="addToCart.php?id=<?php echo $row['ItemID'] ?>" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></a>
                                     </div>
                                 </div>
@@ -282,7 +242,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <!-- <input type="number" class="custom-input" value="1" id="inputValue" name="jumlah" min="1" max="100" style="width: 18%; height: 33px;"> -->
-                                        <a href="ViewProduk.php?ItemID= <?php echo $row['ItemID']?>" class="btn btn-warning viewproduk"><i class="fa-regular fa-eye"></i></a>
+                                        <a href="ViewProduk_prdct.php?ItemID= <?php echo $row['ItemID']?>" class="btn btn-warning viewproduk"><i class="fa-regular fa-eye"></i></a>
                                         <a href="addToCart.php?id=<?php echo $row['ItemID'] ?>" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></a>
                                     </div>
                                 </div>
@@ -312,17 +272,21 @@
 
     <!-- Optional JavaScript; choose one of the two! -->
     <script>
-        var modal = document.getElementById("myModal");
-        var span = document.getElementsByClassName("Close")[0];
-        span.onclick = function() {
-            window.location = "Produk.php";
-        }
-        
-        // window.onclick = function() {
-        //     window.location = "ProdukDisplay.php";
-        // }
-
-
+        $(document).ready(function() {
+            $("#Search").keyup(function(){
+                $.ajax({
+                    type: 'POST',
+                    url : 'search.php',
+                    data : {
+                        search : $(this).val()
+                    },
+                    cache : false,
+                    success : function(data) {
+                        $("#tampil").html(data);
+                    }
+                });
+            });
+        });
     </script>
 
 

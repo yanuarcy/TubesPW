@@ -11,8 +11,32 @@
       "dest": "/api/index.php"
     },
     {
+      "src": "/about",
+      "dest": "/api/About.php"
+    },
+    {
+      "src": "/product",
+      "dest": "/api/Produk.php"
+    },
+    {
+      "src": "/cart",
+      "dest": "/api/Cart.php"
+    },
+    {
+      "src": "/admin",
+      "dest": "/api/admin/Dashboard.php"
+    },
+    {
+      "src": "/admin/(.*)",
+      "dest": "/api/admin/$1"
+    },
+    {
       "src": "/api/(.*)",
       "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|ico|svg))",
+      "dest": "/$1"
     }
   ]
 }
