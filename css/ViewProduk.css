@@ -1,0 +1,328 @@
+/* The Modal (background) */
+.modal {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 3% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 38%; /* Could be more or less, depending on screen size */
+    height: 88%;
+}
+
+/* Modal Header */
+.modal-header {
+    margin: auto;
+    margin-top: -10%;
+    text-align: center;
+}
+
+/* Modal Body */
+.modal-body .input-form {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+    width: 100%;
+}
+
+.input-form .nama {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    padding: 2%;
+    margin: 3%;
+}
+
+.input-form .gender {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    padding: 2%;
+    margin: 3%;
+}
+
+.input-form .email {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    padding: 2%;
+    margin: 3%;
+}
+
+.input-form .password {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    padding: 2%;
+    margin: 3%;
+}
+
+.input-form .telp {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    padding: 2%;
+    margin: 3%;
+}
+
+.input-form .alamat {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    padding: 2%;
+    margin: 3%;
+}
+
+.input-form .file,img {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    /* padding: 2%; */
+    margin-left: 3%;
+}
+
+.input-form .Button {
+    font-size: 18px;
+    font-family: 'Plain', sans-serif;
+    background-color: #f13a11;
+    color: white;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    padding: 2%;
+    margin: 3%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.input-form .Button:hover {
+    background-color: #171819;
+    color: #f13a11;
+}
+
+.input-form .Button::selection {
+    background-color: transparent;
+}
+
+.input-form .checkbox {
+    margin-top: 5%;
+    margin-bottom: -33px;
+    margin-left: -38px;
+    width: 100px;
+    height: 20px;
+
+}
+
+.input-form .permission {
+    font-size: 18px;
+    margin-left: 30px;
+    margin-top: 2%;
+}
+
+.input-form .permission a {
+    color: #f13a11;
+}
+
+.input-form .permission a:hover {
+    color: #171819;
+}
+
+/* The Close Button */
+.Close {
+    color: #aaa;
+    display: flex;
+    justify-content: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.Close:hover,
+.Close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Modal */
+@media screen and (max-width: 1500px) {
+    .modal-content {
+        width: 35%;
+        height: 90%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .modal-content {
+        width: 36%;
+        height: 87%;
+    }
+
+    .modal-header .ModalTittle {
+        font-size: var(--h3-font-size);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .modal-content {
+        width: 46%;
+        height: 90%;
+    }
+}
+
+@media screen and (max-width: 885px) {
+    .modal-content {
+        width: 50%;
+        height: 88%;
+    }
+}
+
+@media screen and (max-width: 815px) {
+    .input-form .nama {
+        font-size: var(--base-font-size);
+    }
+    .input-form .email {
+        font-size: var(--base-font-size);
+    }
+    .input-form .telp {
+        font-size: var(--base-font-size);
+    }
+    .input-form .message {
+        font-size: var(--base-font-size);
+    }
+    .input-form .Button {
+        font-size: var(--base-font-size);
+    }
+    .input-form .permission {
+        font-size: var(--base-font-size);
+    }
+
+    .modal-content {
+        width: 55%;
+        height: 82%;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .modal-content {
+        width: 62%;
+        height: 80%;
+        margin: 10% auto;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .modal-content {
+        width: 65%;
+        height: 75%;
+    }
+
+    .modal-header .ModalTittle {
+        font-size: var(--h5-font-size);
+    }
+
+    .input-form .nama {
+        font-size: var(--menu-font-size);
+    }
+    .input-form .email {
+        font-size: var(--menu-font-size);
+    }
+    .input-form .telp {
+        font-size: var(--menu-font-size);
+    }
+    .input-form .message {
+        font-size: var(--menu-font-size);
+    }
+    .input-form .Button {
+        font-size: var(--menu-font-size);
+    }
+    .input-form .permission {
+        font-size: var(--menu-font-size);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .modal-content {
+        margin: 18% auto;
+        width: 75%;
+        height: 78%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .modal-header .ModalTittle {
+        font-size: var(--h6-font-size);
+    }
+
+    .input-form .nama {
+        font-size: 12px;
+    }
+    .input-form .email {
+        font-size: 12px;
+    }
+    .input-form .telp {
+        font-size: 12px;
+    }
+    .input-form .message {
+        font-size: 12px;
+    }
+    .input-form .Button {
+        font-size: 12px;
+    }
+    .input-form .permission {
+        font-size: 12px;
+    }
+
+    .input-form .permission a {
+        font-size: 12px;
+    }
+
+    .modal-content {
+        height: 69%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .modal-header .ModalTittle {
+        font-size: var(--p-font-size);
+    }
+
+    .input-form .nama {
+        font-size: 10px;
+    }
+    .input-form .email {
+        font-size: 10px;
+    }
+    .input-form .telp {
+        font-size: 10px;
+    }
+    .input-form .message {
+        font-size: 10px;
+    }
+    .input-form .Button {
+        font-size: 10px;
+    }
+    .input-form .permission {
+        font-size: 10px;
+        margin-top: 5%;
+    }
+
+    .input-form .permission a {
+        font-size: 10px;
+    }
+
+    .input-form .checkbox {
+        height: 15px;
+    }
+
+    .modal-content {
+        height: 60%;
+        margin: 34% auto;
+    }
+}
+/* Akhir Responsive Modal */
