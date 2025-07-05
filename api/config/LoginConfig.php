@@ -132,7 +132,7 @@ class Login {
                 
                 if ($stmt->rowCount() > 0) {
                     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                    session_start();
+                    // session_start();
                     $_SESSION['nama'] = $row['Nama'];
                     $_SESSION['memberid'] = $row['MemberID'];
                     $_SESSION["username"] = $username;
