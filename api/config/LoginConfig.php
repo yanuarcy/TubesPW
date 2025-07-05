@@ -133,13 +133,14 @@ class Login {
                 if ($stmt->rowCount() > 0) {
                     $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     session_start();
-                    $_SESSION['nama'] = $row['nama'];
-                    $_SESSION['memberid'] = $row['memberid'];
+                    $_SESSION['nama'] = $row['Nama'];
+                    $_SESSION['memberid'] = $row['MemberID'];
                     $_SESSION["username"] = $username;
                     $_SESSION["RoleAdmin"] = $Rolee;
                     
                     $this->closeConnection();
-                    header("Location: /admin");
+                    // header("Location: /admin");
+                    echo "<script>setTimeout(function(){ window.location.href = '/admin'; }, 1000);</script>";
                 } else {
                     $this->closeConnection();
                     echo "Invalid username or password";
