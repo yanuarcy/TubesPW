@@ -4,10 +4,10 @@ class ProdukConfig
     private $conn;
     
     public function __construct() {
-        $hostname = 'localhost';
-        $dbname = 'uas';
-        $username = 'root';
-        $password = '';
+        $hostname = 'fm07c.h.filess.io';
+        $dbname = 'solaris_pleasuremy';
+        $username = 'solaris_pleasuremy';
+        $password = '8c9eb5761d390d7147a2f9e4013c3680ac16fb69';
         $this->conn = new PDO("mysql:host=$hostname;dbname=$dbname", "$username", "$password");
     }
     
