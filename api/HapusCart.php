@@ -11,7 +11,7 @@
         unset($_SESSION['cart'][$id]);
     }
 
-    echo '<script> window.location = "Cart.php"; </script>';
+    echo '<script> window.location = "/cart"; </script>';
 
 
 

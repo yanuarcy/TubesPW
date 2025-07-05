@@ -52,7 +52,7 @@
             <h3 class="text-left">Email &emsp;&emsp;: <?php echo $email ?></h3>
             <h3 class="text-left">Telp &emsp;&emsp; &emsp;: <?php echo $telp ?></h3>
             <h3 class="text-left">Alamat &emsp;&emsp;: <?php echo $alamat ?></h3>
-            <button type="button" class="btn btn-warning my-5"><a href="index.php" style="text-decoration: none; color:white; font-size: 20px;">Back To Home</a></button>
+            <button type="button" class="btn btn-warning my-5"><a href="/" style="text-decoration: none; color:white; font-size: 20px;">Back To Home</a></button>
         </div>
     </div>
 

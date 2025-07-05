@@ -43,9 +43,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto" id="navScroll">
-                    <a class="nav-link" href="index.php">Home<span class="sr-only"></span></a>
+                    <a class="nav-link" href="/">Home<span class="sr-only"></span></a>
                     <a class="nav-link page-scroll" id="NavAbout" href="">About</a>
-                    <a class="nav-link smoothScroll" href="Produk.php">Product</a>
+                    <a class="nav-link smoothScroll" href="/product">Product</a>
                     
                     
                 </div>
@@ -86,11 +86,11 @@
             </div>
             <div class="col support">
                 <h5 class="Judul text-white">Customer Care</h5>
-                <a href="index.php">Home</a>
+                <a href="/">Home</a>
                 <br>
-                <a href="About.php">About Us</a>
+                <a href="/about">About Us</a>
                 <br>
-                <a href="Produk.php">Our Product</a>
+                <a href="/product">Our Product</a>
             </div>
             <div class="col text-white">
                 <h5 class="Judul">Find Us</h5>

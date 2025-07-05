@@ -23,6 +23,26 @@
       "dest": "/api/Cart.php"
     },
     {
+      "src": "/view-product",
+      "dest": "/api/ViewProduk_prdct.php"
+    },
+    {
+      "src": "/ViewProduk_prdct.php",
+      "dest": "/api/ViewProduk_prdct.php"
+    },
+    {
+      "src": "/product-detail",
+      "dest": "/api/ViewProduk_index.php"
+    },
+    {
+      "src": "/ViewProduk_index.php", 
+      "dest": "/api/ViewProduk_index.php"
+    },
+    {
+      "src": "/addToCart.php",
+      "dest": "/api/addToCart.php"
+    },
+    {
       "src": "/admin",
       "dest": "/api/admin/Dashboard.php"
     },

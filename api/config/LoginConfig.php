@@ -116,7 +116,7 @@ class Login {
                     
                     $this->closeConnection();
                     // echo "<script>console.log('Login berhasil untuk user: " . $row['nama'] . "');</script>";
-                    echo "<script>setTimeout(function(){ window.location.href = 'index.php'; }, 1000);</script>";
+                    echo "<script>setTimeout(function(){ window.location.href = '/'; }, 1000);</script>";
                 } else {
                     $this->closeConnection();
                     echo "<script>console.log('Login gagal: Invalid username or password');</script>";
@@ -139,7 +139,7 @@ class Login {
                     $_SESSION["RoleAdmin"] = $Rolee;
                     
                     $this->closeConnection();
-                    header("Location: admin/Dashboard.php");
+                    header("Location: /admin");
                 } else {
                     $this->closeConnection();
                     echo "Invalid username or password";

@@ -5,7 +5,7 @@
         $rolUser = $_SESSION['RoleUser'];
         unset($_SESSION['logged_in']);
         // session_destroy();
-        header("Location: index.php");
+        header("Location: /");
     }
     if(isset($_SESSION['RoleAdmin'])){
         $rolAdmin = $_SESSION['RoleAdmin'];
@@ -14,7 +14,7 @@
         // unset($_SESSION['memberid']);
         // unset($_SESSION['username']);
         // unset($_SESSION['RoleAdmin']);
-        header("Location: index.php");
+        header("Location: /");
     }
     exit;
 

@@ -62,9 +62,9 @@
     // }
 
     if(isset($_SESSION['ProdukPage'])) {
-        echo '<script> window.location = "Produk.php"; </script>';
+        echo '<script> window.location = "/product"; </script>';
     }else {
-        echo '<script> window.location = "index.php"; </script>';
+        echo '<script> window.location = "/"; </script>';
     }
     
 

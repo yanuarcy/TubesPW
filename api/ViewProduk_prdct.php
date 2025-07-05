@@ -134,8 +134,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto" id="navScroll">
-                    <a class="nav-link" href="index.php">Home<span class="sr-only"></span></a>
-                    <a class="nav-link page-scroll" href="About.php">About</a>
+                    <a class="nav-link" href="/">Home<span class="sr-only"></span></a>
+                    <a class="nav-link page-scroll" href="/about">About</a>
                     <a class="nav-link smoothScroll" id="NavProduk" href="Produk.php">Product</a>
                     <form action="" method="post" id="search">
                         <input type="text" id="Search" name="keyword" placeholder="Search By Name.." autocomplete="off">
@@ -151,14 +151,14 @@
                         
                     ?>
                     <h5 class="TextKranjang">
-                        <a class="" href="Cart.php"><i class="fa-solid fa-cart-shopping mr-2"></i>Cart <span class="badge badge-warning badge-pill"><?php echo count($CarTT) ?></span></a>
+                        <a class="" href="/cart"><i class="fa-solid fa-cart-shopping mr-2"></i>Cart <span class="badge badge-warning badge-pill"><?php echo count($CarTT) ?></span></a>
                     </h5 class="TextKranjang">
                     
                     <?php } else {
                         
                     ?>
                     <h5 class="TextKranjang">
-                        <a class="" href="Cart.php"><i class="fa-solid fa-cart-shopping mr-2"></i>Cart <span class="badge badge-warning badge-pill"><?php echo count($cart) ?></span></a>
+                        <a class="" href="/cart"><i class="fa-solid fa-cart-shopping mr-2"></i>Cart <span class="badge badge-warning badge-pill"><?php echo count($cart) ?></span></a>
                     </h5 class="TextKranjang">
                     <?php }
                     ?>
