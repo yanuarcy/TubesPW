@@ -107,15 +107,15 @@ class Login {
                     $_SESSION['logged_in'] = true;
                     $_SESSION['cart'] = true;
                     $_SESSION['RoleUser'] = $Rolee;
-                    $_SESSION['MemberID'] = $row['memberid'];
-                    $_SESSION['Nama'] = $row['nama'];
-                    $_SESSION['Email'] = $row['email'];
-                    $_SESSION['Telp'] = $row['telp'];
-                    $_SESSION['Alamat'] = $row['alamat'];
+                    $_SESSION['MemberID'] = $row['MemberID'];
+                    $_SESSION['Nama'] = $row['Nama'];
+                    $_SESSION['Email'] = $row['Email'];
+                    $_SESSION['Telp'] = $row['Telp'];
+                    $_SESSION['Alamat'] = $row['Alamat'];
                     $_SESSION["username"] = $username;
                     
                     $this->closeConnection();
-                    echo "<script>console.log('Login berhasil untuk user: " . $row['nama'] . "');</script>";
+                    // echo "<script>console.log('Login berhasil untuk user: " . $row['nama'] . "');</script>";
                     echo "<script>setTimeout(function(){ window.location.href = 'index.php'; }, 1000);</script>";
                 } else {
                     $this->closeConnection();
