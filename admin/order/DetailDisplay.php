@@ -401,7 +401,11 @@
                     <?php     
                         $no = 1;
                         $Total = 0;
-                        $pdo = new PDO('mysql:host=fm07c.h.filess.io;dbname=solaris_pleasuremy;charset=utf8', 'solaris_pleasuremy', '8c9eb5761d390d7147a2f9e4013c3680ac16fb69');
+                        $pdo = new PDO(
+                            'mysql:host=fm07c.h.filess.io;port=3307;dbname=solaris_pleasuremy;charset=utf8', 
+                            'solaris_pleasuremy', 
+                            '8c9eb5761d390d7147a2f9e4013c3680ac16fb69'
+                        );
                         $query = "SELECT * FROM orderdetails WHERE orderid = :Orderid";
                         $stmt = $pdo->prepare($query);
                         $stmt->bindParam(':Orderid', $id);
