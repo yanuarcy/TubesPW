@@ -5,10 +5,10 @@ class ProdukConfig
     
     private function getConnection() {
         if ($this->conn === null) {
-            $hostname = 'fm07c.h.filess.io';
-            $dbname = 'solaris_pleasuremy';
-            $username = 'solaris_pleasuremy';
-            $password = '8c9eb5761d390d7147a2f9e4013c3680ac16fb69';
+            $hostname = '1h2xah.h.filess.io';
+            $dbname = 'Solaris_funnyaddby';
+            $username = 'Solaris_funnyaddby';
+            $password = '90846628df0a97937365356a77001ad67e310f98';
             $port = 3307;
             
             try {
